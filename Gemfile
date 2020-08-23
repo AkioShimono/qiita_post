@@ -63,6 +63,9 @@ group :development, :test do
   # 便利なデバッグ(環境に注意)
   gem "better_errors"
   gem "binding_of_caller"
+# RSpec
+  gem 'rspec-rails'
+  gem 'rails-controller-testing'
 end
 
 group :development do
