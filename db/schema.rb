@@ -15,8 +15,10 @@ ActiveRecord::Schema.define(version: 2020_08_26_100017) do
   create_table "contents", force: :cascade do |t|
     t.string "title"
     t.string "url"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_contents_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
