@@ -38,7 +38,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'bcrypt', '~> 3.1.7'
 # Bootstrap
-gem 'bootstrap','~> 4.0.0'
+gem 'bootstrap','~> 4.5.0'
 gem 'mini_racer'
 gem 'jquery-rails'
 # ページネーション機能

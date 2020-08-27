@@ -1,0 +1,14 @@
+<%= form_with(model: @content,url:user_contents_path, local: true) do |f| %>
+
+  <div class="form-group">
+  <%= f.label :title, 'タイトル' %>
+  <%= f.text_field :title, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :url, 'URL' %>
+    <%= f.text_field :url, class: 'form-control' %>
+  </div>
+
+  <%= f.submit '登録する', class: 'btn btn-primary btn-block' %>
+<% end %>
