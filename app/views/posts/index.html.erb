@@ -1,5 +1,5 @@
-<h3>トップページです 投稿一覧</h3>
-<p><a href="/login">ログインページ</a></p>
-<p><a href="/users/new">新規登録</a></p>
-
-
+<% if logged_in? %>
+  <%= render 'posts/logged_in' %>
+<% else %>
+  <%= render 'posts/not_logged_in' %>
+<% end %>

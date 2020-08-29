@@ -1,5 +1,6 @@
 <%= form_with(model: @content,url:user_contents_path, local: true) do |f| %>
-
+  <%= render partial: 'shared/error_messages' ,locals: {obj: @content} %>
+  
   <div class="form-group">
   <%= f.label :title, 'タイトル' %>
   <%= f.text_field :title, class: 'form-control' %>
@@ -9,6 +10,8 @@
     <%= f.label :url, 'URL' %>
     <%= f.text_field :url, class: 'form-control' %>
   </div>
+
+  <%= f.hidden_field :user_id, :value => params[:user_id] %>
 
   <%= f.submit '登録する', class: 'btn btn-primary btn-block' %>
 <% end %>
