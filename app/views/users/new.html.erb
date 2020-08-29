@@ -1,5 +1,15 @@
-<%= form_with(model: @user, local: true) do |f| %>
+<h1>会員登録</h1>
 
+<div class="form-group">
+  <label>会員登録済みの方はこちら</label>
+  <a href="/login">
+    <button type="button" class="btn btn-info">ログインページ</button>
+  </a>
+</div>
+
+
+<%= form_with(model: @user, local: true) do |f| %>
+  <%= render partial: 'shared/error_messages' ,locals: {obj: @user} %>
   <div class="form-group">
   <%= f.label :name, '名前' %>
   <%= f.text_field :name, class: 'form-control' %>
@@ -14,8 +24,6 @@
     <%= f.label :password, 'パスワード' %>
     <%= f.password_field :password, class: 'form-control' %>
   </div>
- 
 
- 
   <%= f.submit '登録する', class: 'btn btn-primary btn-block' %>
 <% end %>

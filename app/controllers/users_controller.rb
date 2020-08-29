@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+before_action :mycontents, only: :show
 
 def new
   @user = User.new
@@ -11,14 +12,13 @@ def create
     flash[:success] = '新しいユーザーを登録しました。'
      redirect_to @user
   else
-     flash.now[:danger] = 'ユーザーの登録に失敗しました。'
      render :new
   end
  end
 
- def show
-
- end
+def show
+ 
+end
    
 private
 #ストロングパラメーター
