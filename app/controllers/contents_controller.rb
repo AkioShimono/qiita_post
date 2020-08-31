@@ -25,7 +25,7 @@ class ContentsController < ApplicationController
   end
 
   def update
-    @content.update(params.require(:content).permit(:title, :url, :memo, :user_id))
+    @content.update(content_params)
     flash[:success] = 'コンテンツを編集しました。'
     redirect_to user_path(params[:user_id])
   end
