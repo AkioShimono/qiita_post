@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 2020_08_26_100017) do
   create_table "contents", force: :cascade do |t|
     t.string "title"
     t.string "url"
+    t.text "memo"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
