@@ -1,29 +1,32 @@
-<h1>会員登録</h1>
+ <div class="text-center mb-4">
+  <h1 class="h3 mb-3 font-weight-normal">会員登録</h1>
 
-<div class="form-group">
-  <label>会員登録済みの方はこちら</label>
-  <a href="/login">
-    <button type="button" class="btn btn-info">ログインページ</button>
-  </a>
+  <div class="form-group">
+    <label>会員登録済みの方はこちら</label>
+    <a href="/login">
+      <button type="button" class="btn btn-info">ログインページ</button>
+    </a>
+  </div>
 </div>
 
+<div class="form-label-group">
+  <%= form_with(model: @user, local: true) do |f| %>
+    <%= render partial: 'shared/error_messages' ,locals: {obj: @user} %>
+    <div class="form-group">
+    <%= f.label :name, '名前' %>
+    <%= f.text_field :name, class: 'form-control' %>
+    </div>
 
-<%= form_with(model: @user, local: true) do |f| %>
-  <%= render partial: 'shared/error_messages' ,locals: {obj: @user} %>
-  <div class="form-group">
-  <%= f.label :name, '名前' %>
-  <%= f.text_field :name, class: 'form-control' %>
-  </div>
+    <div class="form-group">
+      <%= f.label :email, 'メールアドレス' %>
+      <%= f.email_field :email, class: 'form-control' %>
+    </div>
+  
+    <div class="form-group">
+      <%= f.label :password, 'パスワード' %>
+      <%= f.password_field :password, class: 'form-control' %>
+    </div>
 
-  <div class="form-group">
-    <%= f.label :email, 'メールアドレス' %>
-    <%= f.email_field :email, class: 'form-control' %>
-  </div>
- 
-  <div class="form-group">
-    <%= f.label :password, 'パスワード' %>
-    <%= f.password_field :password, class: 'form-control' %>
-  </div>
-
-  <%= f.submit '登録する', class: 'btn btn-primary btn-block' %>
-<% end %>
+    <%= f.submit '登録する', class: 'btn btn-primary btn-block' %>
+  <% end %>
+</div>
