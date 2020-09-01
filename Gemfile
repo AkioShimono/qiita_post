@@ -56,6 +56,9 @@ gem 'rounding'
 gem 'rinku'
 # 環境変数を利用したい
 gem 'dotenv-rails'
+# 環境変数を利用したい
+gem "qiita"
+# QiitaのAPI
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
