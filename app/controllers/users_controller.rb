@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
 before_action :mycontents, only: :show
+before_action :qiita, only: :show
 
   def new
     @user = User.new
@@ -17,7 +18,7 @@ before_action :mycontents, only: :show
   end
 
   def show
-  
+    
   end
     
   private

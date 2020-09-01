@@ -5,6 +5,10 @@ include SessionsHelper
     @contents = Content.where(user_id: params[:id])
   end
 
+  def qiita
+    @client = Qiita::Client.new(access_token: ENV["qiita_token"])
+  end
+
   private
   # ログイン済みユーザーかどうか確認
   def logged_in_user
