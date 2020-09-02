@@ -2,6 +2,10 @@ require_relative 'boot'
 
 require 'rails/all'
 require "qiita"
+require 'open-uri'
+require 'fileutils'
+require 'json'
+require 'date'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.

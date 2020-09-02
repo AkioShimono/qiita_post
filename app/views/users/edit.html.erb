@@ -1,0 +1,29 @@
+ <div class="text-center mb-4">
+  <h1 class="h3 mb-3 font-weight-normal">会員情報の編集</h1>
+</div>
+
+<div class="form-label-group">
+  <%= form_with(model: @user, local: true) do |f| %>
+    <%= render partial: 'shared/error_messages' ,locals: {obj: @user} %>
+
+    <div class="form-group">
+    <%= f.label :name, '名前' %>
+    <%= f.text_field :name, value: @user.name, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :email, 'メールアドレス' %>
+      <%= f.email_field :email, value: @user.email, class: 'form-control' %>
+    </div>
+
+    <%= f.submit '登録する', class: 'btn btn-primary btn-block' %>
+  <% end %>
+</div>
+
+  <div class="text-center mb-4 top_margin">
+    <h1 class="h3 mb-3 font-weight-normal">ユーザー情報の削除</h1>
+  </div>
+
+  <div align="center">
+    <%= link_to "ユーザー情報の削除", user_path, method: :delete, data: {confirm: "【確認】削除しますか？"},class: "btn btn-danger btn-lg" %>
+  </div>
