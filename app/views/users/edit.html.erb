@@ -16,6 +16,11 @@
       <%= f.email_field :email, value: @user.email, class: 'form-control' %>
     </div>
 
+    <div class="form-group">
+      <%= f.label :qiita_token, 'Qiitaトークン' %>
+      <%= f.text_field :qiita_token, value: @user.qiita_token, class: 'form-control' %>
+    </div>
+
     <%= f.submit '登録する', class: 'btn btn-primary btn-block' %>
   <% end %>
 </div>

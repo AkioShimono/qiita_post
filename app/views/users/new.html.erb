@@ -13,7 +13,7 @@
   <%= form_with(model: @user, local: true) do |f| %>
     <%= render partial: 'shared/error_messages' ,locals: {obj: @user} %>
     <div class="form-group">
-    <%= f.label :name, '名前' %>
+    <p><%= f.label :name, '名前' %>(<a href="https://qiita.com/" target="blank">Qiitaのアカウント名</a>と同じにしてください。例：@abcの場合はabcとしてください)</p>
     <%= f.text_field :name, class: 'form-control' %>
     </div>
 
@@ -25,6 +25,11 @@
     <div class="form-group">
       <%= f.label :password, 'パスワード' %>
       <%= f.password_field :password, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <p><%= f.label :qiita_token, 'Qiita アクセストークン' %>(<a href="https://qiita.com/settings/tokens/new" target="blank">こちら</a>から取得可能です)</p>
+      <%= f.password_field :qiita_token, class: 'form-control' %>
     </div>
 
     <%= f.submit '登録する', class: 'btn btn-primary btn-block' %>
