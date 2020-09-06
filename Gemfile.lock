@@ -159,6 +159,7 @@ GEM
     nokogiri (1.10.10)
       mini_portile2 (~> 2.4.0)
     ntlm-http (0.1.1)
+    pg (0.20.0)
     polyamorous (2.3.2)
       activerecord (>= 5.2.1)
     popper_js (1.16.0)
