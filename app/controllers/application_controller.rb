@@ -6,31 +6,19 @@ include SessionsHelper
   end
   
   def my_post
-    1.upto(100) do |i|
-      # 記事一覧を取得
-      response = URI.open(
-        # "https://qiita.com/api/v2/users/NoA_okku/items"
-        "https://qiita.com/api/v2/authenticated_user/items?page=#{i}&per_page=100",
-        'Authorization' => "Bearer #{ENV["qiita_token"]}"
-      )
-      @my_post = JSON.parse(response.read)
-      # 記事が見つからなかった場合は終了する
-      break if my_post.empty?
-    end
-  end
+    params[:page] = 1
 
-  def my_stock
-    1.upto(100) do |i|
-      # 記事一覧を取得
-      response = URI.open(
-        "https://qiita.com/api/v2/users/NoA_okku/stocks?page=#{i}&per_page=100"
-      )
-      @my_stock = JSON.parse(response.read)
-      # 記事が見つからなかった場合は終了する
-      break if my_stock.empty?
-    end
-  end
+    response = URI.open(
+      "https://qiita.com/api/v2/authenticated_user/items?page=#{params[:page]}&per_page=20",
+      'Authorization' => "Bearer #{current_user.qiita_token}"
+    )
+    @my_content = JSON.parse(response.read)
 
+    response = URI.open(
+      "https://qiita.com/api/v2/users/#{current_user.name}/stocks?page=#{params[:page]}&per_page=100"
+    )
+    @my_stock = JSON.parse(response.read)
+  end
 
   private
   # ログイン済みユーザーかどうか確認

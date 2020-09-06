@@ -6,19 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-5.times do |n|
-  User.create!(
-    email: "test#{n}@test.com",
-    name: "テスト太郎#{n}",
-    password: "test"
-  )
-end
-
-5.times do |n|
-  Content.create!(
-    title: "テスト#{n}",
-    url: "テスト#{n}",
-    memo: "test#{n}",
-    user_id: "1"
-  )
-end
+User.create!(
+  email: "abc@gmail.com",
+  name: "NoA_okku",
+  password: "abc" ,
+  qiita_token: "9fdbb47aae1dc4b7871e87ac35df8fbe9ed3affb"
+)

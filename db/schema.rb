@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 2020_08_26_100017) do
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
+    t.string "qiita_token"
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
