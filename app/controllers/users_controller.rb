@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
 before_action :mycontents, only: :show
 before_action :set_user, only: %i(edit update destroy)
-before_action :my_post, only: :show
 
 
   def new
@@ -22,7 +21,7 @@ before_action :my_post, only: :show
 
   def show  
     @q = Content.ransack(params[:q])
-    @contents = @q.result(distinct: true).order("created_at DESC")
+    @contents = @q.result(distinct: true).order("created_at DESC").page(params[:page])
   end
 
   def edit
@@ -52,7 +51,7 @@ before_action :my_post, only: :show
   private
     #ストロングパラメーター
     def user_params
-      params.require(:user).permit(:name, :email, :password)
+      params.require(:user).permit(:name, :email, :password, :qiita_token)
     end
 
     #edit用ストロングパラメーター

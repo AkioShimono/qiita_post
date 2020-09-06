@@ -1,0 +1,9 @@
+ <h2>Qiitaとの同期</h2>
+<ul>
+<li>Qiitaの投稿一覧とストックした記事を同期し、投稿記事に追加します。</li>
+<li>名前やQiitaトークンが違う場合は、同期ができません。<a href="/users/<%= current_user.id %>/edit">マイページ</a>から入力内容を確認してください。</li>
+</ul>
+
+ <div align="center" class="top_margin_1">
+  <%= link_to "Qiitaの投稿一覧とストックを同期する", sync_path, method: :put, data: {confirm: "【確認】Qiitaの投稿一覧とストックを同期しますか？"}, class: "btn btn-info btn-lg" %>
+</div>

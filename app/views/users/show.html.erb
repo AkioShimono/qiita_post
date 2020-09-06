@@ -1,6 +1,4 @@
- <div align="center" class="top_margin_1">
-  <%= link_to "Qiitaの投稿一覧とストックを同期する", update_path, method: :put, data: {confirm: "【確認】Qiitaの投稿一覧とストックを同期しますか？"}, class: "btn btn-info btn-lg" %>
-</div>
+
 
 <%= search_form_for(@q, url:user_path(id: current_user.id), method: :get) do |f| %>
   <div class="form-group text-center mb-4 top_margin_1">
@@ -47,3 +45,4 @@
     </div>
   <% end %>
 <% end %>
+<%= paginate @contents %>

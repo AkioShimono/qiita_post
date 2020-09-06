@@ -29,7 +29,7 @@
 
     <div class="form-group">
       <p><%= f.label :qiita_token, 'Qiita アクセストークン' %>(<a href="https://qiita.com/settings/tokens/new" target="blank">こちら</a>から取得可能です)</p>
-      <%= f.password_field :qiita_token, class: 'form-control' %>
+      <%= f.text_field :qiita_token, class: 'form-control' %>
     </div>
 
     <%= f.submit '登録する', class: 'btn btn-primary btn-block' %>

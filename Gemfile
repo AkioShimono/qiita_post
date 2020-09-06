@@ -61,6 +61,8 @@ gem 'mechanize'
 # スクレイピング
 gem 'ransack'
 # 検索フォーム
+gem 'kaminari'
+#ページネーション
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
