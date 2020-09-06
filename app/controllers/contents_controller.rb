@@ -1,6 +1,9 @@
 class ContentsController < ApplicationController
-
   before_action :set_content, only: %i(edit update destroy)
+  before_action :my_post, only: :post_sync
+  before_action :my_stock, only: :post_stock
+  
+
 
   def new
     @content = Content.new
@@ -16,8 +19,28 @@ class ContentsController < ApplicationController
     end
   end
 
-  def show
+  def post_sync
+    @my_content.each do |m|
+      Content.create(
+        title: "#{m["title"]}",
+        url: "#{m["url"]}",
+        user_id: current_user.id
+      )
+    end
 
+    @my_stock.each do |m|
+      Content.create(
+        title: "#{m["title"]}",
+        url: "#{m["url"]}",
+        user_id: current_user.id
+      )
+    end
+      flash[:success] = 'Qiitaの投稿一覧とストックを同期しました。'
+      redirect_to current_user
+  end
+  
+  def show
+    
   end
   
   def edit
