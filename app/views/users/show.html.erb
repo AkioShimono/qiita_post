@@ -14,13 +14,19 @@
 
 
 
-<% if @contents.present? %>
-
+<% if @user_contents.present? %>
   <div class="text-center mb-4 top_margin">
     <h1 class="h3 mb-3 font-weight-normal">投稿した記事一覧</h1>
+    <%= sort_link(
+      @q, :updated_at, "更新日順に並び替える",
+      { default_order: :asc },
+      { class: "sort_link" }
+    ) %>
   </div>
+  
+  <%= paginate @user_contents %>
 
-  <% @contents.each do |content| %>
+  <% @user_contents.each do |content| %>
     <div class="accordion" id="accordionExample">
       <div class="card" role="button" data-toggle="collapse" data-target="#colspace<%= content.id %>" aria-expanded="true" aria-controls="<colspace<%= content.id %>">
         <div class="card-header" id="heading<%= content.id %>">
@@ -45,4 +51,4 @@
     </div>
   <% end %>
 <% end %>
-<%= paginate @contents %>
+<%= paginate @user_contents %>

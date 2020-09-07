@@ -2,7 +2,6 @@ class UsersController < ApplicationController
 before_action :mycontents, only: :show
 before_action :set_user, only: %i(edit update destroy)
 
-
   def new
     @user = User.new
   end
@@ -13,15 +12,15 @@ before_action :set_user, only: %i(edit update destroy)
     if @user.save
       log_in(@user)
       flash[:success] = '新しいユーザーを登録しました。'
-      redirect_to root_url
+      redirect_to current_user
     else
       render :new
     end
   end
 
-  def show  
-    @q = Content.ransack(params[:q])
-    @contents = @q.result(distinct: true).order("created_at DESC").page(params[:page])
+  def show
+    @q = @contents.ransack(params[:q])
+    @user_contents = @q.result(distinct: true).order("updated_at DESC").page(params[:page])
   end
 
   def edit
@@ -31,7 +30,7 @@ before_action :set_user, only: %i(edit update destroy)
   def update
     if @user.update(edit_user_params)
       flash[:success] = 'ユーザー情報を編集しました。'
-      redirect_to root_url
+      redirect_to current_user
     else
       render :edit
     end
