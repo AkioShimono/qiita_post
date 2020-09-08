@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  before_action :login_judge, only: %i(new create)
 
   def new
 

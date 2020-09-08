@@ -1,5 +1,6 @@
 class SyncsController < ApplicationController
   before_action :my_post, only: :post_sync
+  before_action :my_stock, only: :post_sync
 
   def post_sync
     @my_content.each do |m|
