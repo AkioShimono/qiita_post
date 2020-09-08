@@ -4,17 +4,27 @@ class SyncsController < ApplicationController
 
   def post_sync
     @my_content.each do |m|
+      @memo = []
+      m["tags"].each do |n|
+        @memo.push(n["name"])
+      end
       Content.create(
         title: "#{m["title"]}",
         url: "#{m["url"]}",
+        memo: "タグ #{@memo}",
         user_id: current_user.id
       )
     end
 
     @my_stock.each do |m|
+      @memo = []
+      m["tags"].each do |n|
+        @memo.push(n["name"])
+      end
       Content.create(
         title: "#{m["title"]}",
         url: "#{m["url"]}",
+        memo: "タグ #{@memo}",
         user_id: current_user.id
       )
     end
