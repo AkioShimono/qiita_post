@@ -40,6 +40,7 @@ include SessionsHelper
 
   def authority
     unless current_user?(@user)
+      flash[:danger] = '閲覧権限のないページです'
       redirect_to current_user
     end
   end

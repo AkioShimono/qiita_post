@@ -1,5 +1,6 @@
 class ContentsController < ApplicationController
   before_action :set_content, only: %i(edit update destroy)
+  before_action :set_user
   before_action :authority
 
   def new

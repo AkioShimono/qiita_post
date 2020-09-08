@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 before_action :mycontents, only: :show
-before_action :set_user, only: %i(edit update destroy)
+before_action :set_user, only: %i(edit show update destroy)
 before_action :login_judge, only: %i(new create)
 before_action :authority, only: %i(edit show update destroy)
 
