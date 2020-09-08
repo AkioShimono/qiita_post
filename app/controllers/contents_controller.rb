@@ -1,6 +1,7 @@
 class ContentsController < ApplicationController
   before_action :set_content, only: %i(edit update destroy)
-  
+  before_action :authority
+
   def new
     @content = Content.new
   end
@@ -39,6 +40,10 @@ class ContentsController < ApplicationController
 
   def set_content
     @content = Content.find(params["id"])
+  end
+
+  def set_user
+    @user = User.find(params[:user_id])
   end
 
   #ストロングパラメーター

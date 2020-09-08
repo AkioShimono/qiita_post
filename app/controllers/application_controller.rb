@@ -38,6 +38,12 @@ include SessionsHelper
     end
   end
 
+  def authority
+    unless current_user?(@user)
+      redirect_to current_user
+    end
+  end
+
   private
   # ログイン済みユーザーかどうか確認
   def logged_in_user
